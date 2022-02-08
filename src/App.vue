@@ -25,7 +25,6 @@ export default {
 
 <style lang="scss">
 :root {
-  --background-body: #24282F;
   --background-card: #3C3E44;
   --text-white: #FFFFFF;
   --text-gray: #c0c0c0;
@@ -37,13 +36,23 @@ export default {
   padding: 0;
 }
 body {
-  background-color: var(--background-body);
+  background-image: url('./assets/rick-y-morty.png');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #000;
   color: var(--text-white);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 h1 {
-  margin-bottom: 3rem;
   text-align: center;
+  background: #3c3e44;
+    width: 400px;
+    margin: 1rem auto;
+    border-radius: 5px;
+    padding: 1rem;
 }
 .container {
   width: 980px;
@@ -52,5 +61,10 @@ h1 {
 }
 img {
   width: 100%;
+}
+@media (min-width:320px) and (max-width:768px) {
+h1 {  
+    width: initial;
+}
 }
 </style>

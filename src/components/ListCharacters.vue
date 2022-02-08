@@ -39,4 +39,9 @@ export default {
   grid-gap: 3rem;
   margin: 3rem 0;
 }
+@media (min-width:320px) and (max-width:768px) {
+.characters {
+  display: block;
+}
+}
 </style>

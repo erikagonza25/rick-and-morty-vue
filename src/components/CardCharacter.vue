@@ -80,4 +80,9 @@ export default {
     }
   }
 }
+@media (min-width:320px) and (max-width:768px) {
+.character {
+  margin: 1rem;
+}
+}
 </style>

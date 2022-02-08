@@ -37,9 +37,15 @@ export default {
     background-color: var(--background-card);
     text-align: center;
     cursor: pointer;
-    &:hover {
+    &:hover, {
       color: var(--text-orange);
+      background-color: #fff;
     }
   }
+}
+@media (min-width:320px) and (max-width:768px) {
+.filter {
+  width: initial;
+}
 }
 </style>
