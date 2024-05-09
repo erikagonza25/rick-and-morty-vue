@@ -101,14 +101,10 @@ export default {
 
 <style lang="scss">
 .characters {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   grid-gap: 3rem;
   margin: 3rem 0;
-}
-@media (min-width:320px) and (max-width:768px) {
-.characters {
-  display: block;
-}
 }
 </style>

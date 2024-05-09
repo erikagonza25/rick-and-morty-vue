@@ -5,7 +5,7 @@
         type="text" 
         class="form-control" 
         id="nameCharacter" 
-        placeholder="Búsqueda por nombre" 
+        placeholder="Search by Name..." 
         v-model="name"
         @keyup="filter()"
       >
@@ -50,6 +50,10 @@ export default {
 .remove-background {
   background: none !important;
   border: none !important;
+  transition: transform 200ms ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 @media (min-width:320px) and (max-width:768px) {
 .search {

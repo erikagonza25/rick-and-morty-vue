@@ -49,10 +49,7 @@ export default {
   width: 400px;
   padding: 0;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-radius: 10px;
-  overflow: hidden;
+  border-radius: 5px;
   background-color: RGBA(var(--bs-dark-rgb), var(--bs-bg-opacity, 1));
   .item {
     padding: 0.5rem;

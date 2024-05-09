@@ -4,6 +4,7 @@ export default createStore({
   state: {
     characters: [],
     charactersFilter: [],
+    character: null,
     pageInfo: null,
     name: '',
     status: '',
@@ -23,10 +24,13 @@ export default createStore({
     setCharactersFilter(state, payload) {
       state.charactersFilter = payload;
     },
+    setCharacter(state, payload) {
+      state.character = payload;
+    },
   },
   actions: {
       async getCharacters({ commit, state }) {
-        const { name, status, page, loading } = state
+        const { name, status, page } = state
         state.loading = true
         try {
           let url = `https://rickandmortyapi.com/api/character?page=${page}`;
@@ -44,6 +48,7 @@ export default createStore({
           commit('setCharactersFilter', data.results);
         } catch (error) {
           console.error(error);
+          state.loading = false
         }
       },
       filterByStatus({ dispatch, state }, info) {
@@ -65,6 +70,20 @@ export default createStore({
         state.status=""
         state.page = 1
         dispatch('getCharacters');
+      },
+      async getCharacter({ commit, state }, id) {
+        state.loading = true
+        try {
+          let url = `https://rickandmortyapi.com/api/character/${id}`;
+          const response = await fetch(url);
+          const data = await response.json();
+          commit('setCharacter', data);
+          state.loading = false
+        } catch (error) {
+          state.loading = false
+          commit('setCharacter', null);
+          console.error(error);
+        }
       }
   },
   modules: {},

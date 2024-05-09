@@ -33,6 +33,7 @@ export default {
 <style>
 .pagination {
     justify-content: center;
+    --bs-pagination-border-color: #dee2e6 !important;
 }
 .page-link {
   color: #fff !important;

@@ -1,23 +1,16 @@
 <template>
-  <div class="container">
-    <!-- <h1 class="mb-4 text-light">Explorando el Multiverso: Personajes de Rick and Morty</h1> -->
-    <FilterByStatus/>
-    <FilterByName/>
-    <ListCharacters/>
-  </div>
+    <router-view></router-view>
 </template>
 
 <script>
 
-import ListCharacters from './components/ListCharacters.vue'
-import FilterByStatus from './components/FilterByStatus.vue'
-import FilterByName from './components/FilterByName.vue'
+import Home from './views/Home.vue'
+import InfoCharacter from './views/InfoCharacter.vue'
 export default {
   name: 'App',
   components: {
-    ListCharacters,
-    FilterByStatus,
-    FilterByName
+    Home,
+    InfoCharacter
   },
 };
 </script>
@@ -44,18 +37,4 @@ body {
   color: var(--text-white);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-h1 {
-  text-align: center;
-  background: #f700e278;
-  border-radius: 5px;
-}
-.container {
-  width: 980px;
-  max-width: 90%;
-  margin: 5rem auto;
-}
-img {
-  width: 100%;
-}
-
 </style>
