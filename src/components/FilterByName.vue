@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-center mt-3 flex-column align-items-center">
+  <div class="d-flex justify-content-center mt-3 align-items-center">
     <div class="search">
       <input 
         type="text" 
@@ -10,7 +10,7 @@
         @keyup="filter()"
       >
    </div>
-   <div class="mt-2">
+   <div>
     <button type="button" class="btn btn-dark remove-background" @click="clean()">
       <img src="../assets/refresh.png" alt="Icono para refrescar" class="img-refresh">
     </button>
