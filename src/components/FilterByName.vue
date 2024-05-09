@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss">
 .search {
-  width: 60%;
+  width: 40%;
 }
 .img-refresh {
   width: 45px;
