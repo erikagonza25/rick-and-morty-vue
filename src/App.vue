@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="mb-4 text-light">Explorando el Multiverso: Personajes de Rick and Morty</h1>
+    <!-- <h1 class="mb-4 text-light">Explorando el Multiverso: Personajes de Rick and Morty</h1> -->
     <FilterByStatus/>
     <FilterByName/>
     <ListCharacters/>
