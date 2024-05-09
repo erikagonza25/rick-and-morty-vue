@@ -1,7 +1,7 @@
 <template>
   <div class="mb-4 container-title">
     <h1 class="text-light">Exploring the Multiverse</h1>
-    <small class="text-light">Rick and Morty Characters</small>
+    <small class="text-light mt-1">Rick and Morty Characters</small>
   </div>
   <div class="container mt-4">  
     <FilterByStatus/>
