@@ -1,12 +1,21 @@
 <template>
-  <div class="search">
-    <input
-      type="text"
-      placeholder="Search by name"
-      v-model="name"
-      @keyup="filter()"
-    >
-  </div>
+  <div class="d-flex justify-content-center mt-3 flex-column align-items-center">
+    <div class="search">
+      <input 
+        type="text" 
+        class="form-control" 
+        id="nameCharacter" 
+        placeholder="Búsqueda por nombre" 
+        v-model="name"
+        @keyup="filter()"
+      >
+   </div>
+   <div class="mt-2">
+    <button type="button" class="btn btn-dark remove-background" @click="clean()">
+      <img src="../assets/refresh.png" alt="Icono para refrescar" class="img-refresh">
+    </button>
+   </div>
+  </div> 
 </template>
 
 <script>
@@ -18,10 +27,14 @@ export default {
     const name = ref('')
 
     const filter = () => {
-      store.dispatch('filterByName', name.value);
+      store.dispatch('filterByName', { name: name.value, page: 1 });
+    }
+    const clean = () => {
+      name.value = ''
+      store.dispatch('cleanFilters');
     }
     return{
-      name, filter
+      name, filter, clean
     }
   }
 }
@@ -29,19 +42,18 @@ export default {
 
 <style lang="scss">
 .search {
-  width: 400px;
-  margin: 3rem auto 0;
-  input {
-    height: 53px;
-    width: 400px;
-    border: none;
-    border-radius: 10px;
-    padding: 0 0.5rem;
-  }
+  width: 60%;
+}
+.img-refresh {
+  width: 45px;
+}
+.remove-background {
+  background: none !important;
+  border: none !important;
 }
 @media (min-width:320px) and (max-width:768px) {
-.search input {
-  width: 73%;
+.search {
+  width: 90%;
 }
 }
 </style>

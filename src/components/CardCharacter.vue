@@ -1,24 +1,21 @@
 <template>
-  <div class="character">
-    <img :src="character.image" :alt="character.name">
-    <div class="character__info">
-      <h3>{{character.name}}</h3>
-      <div class="status">
-        <span
+  <div class="card text-bg-dark character">
+    <div class="card-body">
+      <h5 class="card-title">{{character.name}}</h5>
+      <p class="card-text">
+        <span 
+          class="badge rounded" 
           :class="
-            character.status == 'Alive' ? 'alive' :
-            character.status == 'Dead' ? 'dead' :
-            'default'"
-        ></span>
-        <span>{{character.status}} - {{character.species}}</span>
-      </div>
-      <div class="origin">
-        <span>Origin: {{character.origin.name}}</span>
-      </div>
-      <div class="location">
-        <span>Location: {{character.location.name}}</span>
-      </div>
+            character.status == 'Alive' ? 'text-bg-success' :
+            character.status == 'Dead' ? 'text-bg-danger' :
+            'text-bg-secondary'"
+            >{{character.status}} - {{character.species}}
+        </span>
+      </p>
+      <p class="card-text"><strong>Origin:</strong> {{character.origin.name}}</p>
+      <p class="card-text"><strong>Location:</strong> {{character.location.name}}</p>
     </div>
+    <img :src="character.image" class="card-img-bottom" :alt="character.name">
   </div>
 </template>
 
@@ -49,35 +46,6 @@ export default {
   }
   h3 {
     margin-bottom: 0.5rem;
-  }
-  &__info {
-    padding: 1.5rem;
-    .status{
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5rem;
-      span {
-        color: var(--text-gray);
-        &:first-child {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          margin-right: 0.5rem;
-        }
-      }
-      .alive {
-        background-color: green;
-      }
-      .dead {
-        background-color: red;
-      }
-      .default {
-        background-color: white;
-      }
-    }
-    .origen {
-      margin-bottom: 0.5rem;
-    }
   }
 }
 @media (min-width:320px) and (max-width:768px) {

@@ -1,24 +1,44 @@
 <template>
-  <div class="filter">
-    <div class="item" @click="filter('')">All</div>
-    <div class="item" @click="filter('Alive')">Alive</div>
-    <div class="item" @click="filter('Dead')">Dead</div>
-    <div class="item" @click="filter('unknown')">Unknown</div>  
-  </div>
+  <ul class="nav nav-underline justify-content-center filter">
+    <li class="nav-item item">
+      <a :class="{ 'active': selectedFilter === '' }" class="nav-link" @click="filter('')" href="#">All</a>
+    </li>
+    <li class="nav-item item">
+      <a :class="{ 'active': selectedFilter === 'Alive' }" class="nav-link" @click="filter('Alive')" href="#">Alive</a>
+    </li>
+    <li class="nav-item item">
+      <a :class="{ 'active': selectedFilter === 'Dead' }" class="nav-link" @click="filter('Dead')" href="#">Dead</a>
+    </li>
+    <li class="nav-item item">
+      <a :class="{ 'active': selectedFilter === 'unknown' }"  class="nav-link" @click="filter('unknown')" href="#">Unknown</a>
+    </li>
+  </ul>
 </template>
 
 <script>
 import {useStore} from 'vuex'
+import { ref, computed, watch } from 'vue'
 export default {
   setup(){
     const store = useStore();
+    const selectedFilter = ref('');
+
+    const storeStatus = computed(() => {
+      return store.state.status;
+    });
+
+    watch(storeStatus, () => {
+      selectedFilter.value = storeStatus.value
+    });
 
     const filter = ((status) => {
-      store.dispatch('filterByStatus', status)
+      store.dispatch('filterByStatus', { status, page: 1 })
+      selectedFilter.value = status
     })
 
     return {
-      filter
+      filter,
+      selectedFilter
     }
   }
 }
@@ -27,22 +47,26 @@ export default {
 <style lang="scss">
 .filter {
   width: 400px;
+  padding: 0;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-radius: 10px;
   overflow: hidden;
+  background-color: RGBA(var(--bs-dark-rgb), var(--bs-bg-opacity, 1));
   .item {
-    padding: 1rem 0.5rem;
-    background-color: var(--background-card);
+    padding: 0.5rem;
     text-align: center;
-    cursor: pointer;
-    &:hover, {
-      color: var(--text-orange);
-      background-color: #fff;
-    }
+    font-size: 18px;
   }
 }
+.nav-link {
+  color: #fff !important;
+}
+.nav-link:hover, .nav-link:focus, .active {
+  color: rgb(168, 80, 168) !important;
+}
+
 @media (min-width:320px) and (max-width:768px) {
 .filter {
   width: initial;

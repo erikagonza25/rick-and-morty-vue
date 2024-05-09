@@ -1,10 +1,9 @@
 <template>
   <div class="container">
-    <h1>Rick and Morty</h1>
+    <h1 class="mb-4 text-light">Explorando el Multiverso: Personajes de Rick and Morty</h1>
     <FilterByStatus/>
     <FilterByName/>
     <ListCharacters/>
-
   </div>
 </template>
 
@@ -36,7 +35,7 @@ export default {
   padding: 0;
 }
 body {
-  background-image: url('./assets/rick-y-morty.png');
+  background-image: url('./assets/rick-y-morty.jpg');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -45,14 +44,10 @@ body {
   color: var(--text-white);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 h1 {
   text-align: center;
-  background: #3c3e44;
-    width: 400px;
-    margin: 1rem auto;
-    border-radius: 5px;
-    padding: 1rem;
+  background: #f700e278;
+  border-radius: 5px;
 }
 .container {
   width: 980px;
@@ -62,9 +57,5 @@ h1 {
 img {
   width: 100%;
 }
-@media (min-width:320px) and (max-width:768px) {
-h1 {  
-    width: initial;
-}
-}
+
 </style>
