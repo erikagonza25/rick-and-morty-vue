@@ -144,5 +144,8 @@ export default {
     .container-info-character li {
         margin: 1rem
     }
+    .return-list {
+        margin-top: 2rem;
+    }
 }
 </style>
