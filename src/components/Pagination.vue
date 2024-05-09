@@ -38,7 +38,6 @@ export default {
 .page-link {
   color: #fff !important;
   background-color: RGBA(var(--bs-dark-rgb), var(--bs-bg-opacity, 1)) !important;
-  border: none;
 }
 .page-link.disabled, .disabled > .page-link {
     color: rgba(255, 255, 255, 0.548) !important;
