@@ -9,11 +9,11 @@
         v-model="name"
         @keyup="filter()"
       >
-   </div>
-   <div>
-    <button type="button" class="btn btn-dark remove-background" @click="clean()">
-      <img src="../assets/refresh.png" alt="Icono para refrescar" class="img-refresh">
-    </button>
+      <div class="absolute-refresh">
+        <button type="button" class="btn btn-dark remove-background" @click="clean()">
+          <img src="../assets/refresh.png" alt="Icono para refrescar" class="img-refresh">
+        </button>
+      </div>
    </div>
   </div> 
 </template>
@@ -43,6 +43,12 @@ export default {
 <style lang="scss">
 .search {
   width: 40%;
+  position: relative;
+}
+.absolute-refresh{
+  position: absolute;
+  top: -8px;
+  right: -70px;
 }
 .img-refresh {
   width: 45px;
@@ -58,6 +64,12 @@ export default {
 @media (min-width:320px) and (max-width:768px) {
 .search {
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.absolute-refresh {
+  position: initial;
 }
 }
 </style>
