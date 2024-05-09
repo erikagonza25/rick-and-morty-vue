@@ -107,7 +107,7 @@ export default {
 
 <style lang="scss">
 .container-info {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,9 +118,10 @@ export default {
 }
 .return-list {
     transition: transform 200ms ease-in-out;
-  &:hover {
-    transform: scale(1.05);
-  }
+    margin-top: 2rem;
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 .width-card {
     width: 700px;
@@ -143,9 +144,6 @@ export default {
     }
     .container-info-character li {
         margin: 1rem
-    }
-    .return-list {
-        margin-top: 2rem;
     }
 }
 </style>
